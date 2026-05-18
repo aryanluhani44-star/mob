@@ -1,25 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex - Creative Developer</title>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      /* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #6a11cb;
+    --secondary-color: #2575fc;
+    --background-color: #0f0f0f;
+    --surface-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --accent-color:yellow;
+    --font-family: 'Poppins', sans-serif;
+}
 
-  <title>HTML</title>
-  
-  <!-- HTML -->
-  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    
+           -webkit-tap-highlight-color: transparent;
+    outline: none; /* optional: removes focus ring */
+    
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+.section-bg {
+    background-color: var(--surface-color);
+}
+
+h1, h2, h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Header & Navigation --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: rgba(15, 15, 15, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-weight: 400;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* --- Hero Section --- */
+
+img{
+    
+    height:150px;
+    wedth:150px;
+    margin-top:150px;
+    border:2px solid white;
+    
+    
+}
+
+
+.hero {
+    height: ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    max-width: 800px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.cta-button {
+    padding: 0.8rem 2rem;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background-color: #c51162;
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-card {
+    background: var(--background-color);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.skill-card h4 {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* --- Projects Section --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--surface-color);
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid var(--accent-color);
+}
+
+.project-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.project-role {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.project-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.project-card ul li {
+    margin-bottom: 0.5rem;
+}
+
+.project-card ul li strong {
+    color: var(--text-color);
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+/* --- Services Section --- */
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-item {
+    padding: 1.5rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.service-item.featured {
+    grid-column: 1 / -1;
+    text-align: center;
+    border-color: var(--accent-color);
+    background: linear-gradient(45deg, rgba(106, 17, 203, 0.1), rgba(37, 117, 252, 0.1));
+}
+
+/* --- Contact Section --- */
+.contact-info {
+    margin: 2rem 0;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+}
+
+.contact-info a {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.cta-text {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* --- Footer --- */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--surface-color);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .navbar {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--surface-color);
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        padding-top: 4rem;
+        transition: right 0.3s ease-in-out;
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+      
+    </style>
 </head>
-
 <body>
-  <p>I will tray again hu hu</p>
-  <!-- Project -->
-  <script src="main.js"></script>
-  <img src = "7.png"></img>
-  
+
+    <header class="header">
+        <a href="#hero" class="logo"> Aryan.</a>
+        <nav class="navbar">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            
+            <div class="img"><img sizes="150px" srcset="" src="2.png" alt=""></div>
+            
+            <h1>Aryan: Where Art Meets Code & Story</h1>
+            <p>A multi-talented creative professional specializing in illustration, video editing, and web development.</p>
+            <a href="#skills" class="cta-button"   style="margin-bottom:70px ; background:red;">View My Skills</a>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>Hey there! I'm Aryan, a multi-talented creative professional who loves bringing ideas to life. My world is a blend of vibrant colors, compelling narratives, and clean, functional code.</p>
+                <p>With a digital pen in one hand and a keyboard in the other, I bridge the gap between visual storytelling and technical execution. Whether it's designing whimsical stickers, editing a powerful video, or building a seamless website, I'm passionate about creating holistic digital experiences from the ground up.</p>
+            </div>
+        </section>
+
+        <section id="skills" class="section section-bg">
+            <div class="container">
+                <h2>My Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Illustration & Sticker Design</h3>
+                        <p>Custom character design, brand illustrations, and unique sticker packs. My style is vibrant and versatile, tailored to your brand's voice.</p>
+                        <h4>Tools:</h4>
+                        <p>Illustrator, Procreate, Affinity Designer</p>
+                           <a href="#" class="project-link">View My Work</a>
+                           
+                            
+                            
+                    </div>
+                    <div class="skill-card">
+                        <h3>Video Editing & Post-Production</h3>
+                        <p>Engaging YouTube videos, dynamic social media ads, and promotional videos. I focus on storytelling, pacing, and a polished final product.</p>
+                        <h4>Tools:</h4>
+                        <p>Premiere Pro, After Effects, DaVinci Resolve</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Web Development</h3>
+                        <p>Building beautiful, responsive, and user-friendly websites. I focus on clean code, fast speeds, and an intuitive UI/UX.</p>
+                        <h4>Tech Stack:</h4>
+                        <p>HTML, CSS, JS, React, Node.js</p>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>Audio</h3>
+                        <p>Building beautiful, responsive, and user-friendly websites. I focus on clean code, fast speeds, and an intuitive UI/UX.</p>
+                        <h4>Tools:</h4>
+                        <p>Epadmicsound, Audiolab, Aveeplayer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <h3>"Cosmic Cats" - Mobile Game</h3>
+                        <p class="project-role"><strong>Role:</strong> Lead Creative & Developer</p>
+                        <ul>
+                            <li><strong>Illustration:</strong> Designed characters, UI, and sticker packs.</li>
+                            <li><strong>Video:</strong> Edited launch trailer and social media ads.</li>
+                            <li><strong>Web Dev:</strong> Built a responsive landing page.</li>
+                        </ul>
+                        <a href="#" class="project-link">View Project</a>
+                    </article>
+                    <article class="project-card">
+                        <h3>"The Green Leaf" - Eco Brand</h3>
+                        <p class="project-role"><strong>Role:</strong> Digital Brand Architect</p>
+                        <ul>
+                            <li><strong>Illustration:</strong> Created custom icons and infographics.</li>
+                            <li><strong>Video:</strong> Produced an animated explainer video.</li>
+                            <li><strong>Web Dev:</strong> Developed an e-commerce website.</li>
+                        </ul>
+                        <a href="#" class="project-link">View Project</a>
+                    </article>
+                    <article class="project-card">
+                        <h3>"Travel Vlogger" - Personal Brand</h3>
+                        <p class="project-role"><strong>Role:</strong> Creative Partner</p>
+                        <ul>
+                            <li><strong>Illustration:</strong> Designed logo and thumbnail templates.</li>
+                            <li><strong>Video:</strong> Edited cinematic travel vlogs.</li>
+                            <li><strong>Web Dev:</strong> Created a personal portfolio website.</li>
+                        </ul>
+                        <a href="#" class="project-link">View Project</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section section-bg">
+            <div class="container">
+                <h2>Services I Offer</h2>
+                <div class="services-list">
+                    <div class="service-item">
+                        <h3>Creative Branding Package</h3>
+                        <p>Logo, illustrations, and sticker design for a unique brand identity.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Video Editing Package</h3>
+                        <p>From raw footage to a ready-to-upload video, including intros and color grading.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Web Development Package</h3>
+                        <p>A custom, professional website built with a focus on speed and SEO.</p>
+                    </div>
+                    <div class="service-item featured">
+                        <h3>🔥 The "All-in-One" Creative Solution 🔥</h3>
+                        <p>My specialty! Let me handle your entire project from visual identity and promotional videos to the final website. One person, one vision, seamless execution.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Let's Connect!</h2>
+                <p>Whether you have a project in mind or just want to chat, I'm always ready to connect.</p>
+                <div class="contact-info">
+                    <p><strong>Email:</strong> <a href="mailto:alex.creates@email.com">aryanluhani33@gmail.com</a></p>
+                    <p><strong>Instagram/Dribbble:</strong> <a href="#">@alexdraws</a></p>
+                    <p><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/alex-creative</a></p>
+                    <p><strong>GitHub:</strong> <a href="#">github.com/alex-codes</a></p>
+                </div>
+                <p class="cta-text">Have a project in mind? Let's create something amazing together!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Aryan. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+
+    // --- Mobile Menu Toggle ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.querySelector('.navbar');
+
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // --- Close mobile menu when a link is clicked ---
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navbar.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+    });
+
+
+    // --- Active Navigation Link on Scroll ---
+    const sections = document.querySelectorAll('section[id]');
+    const navMenu = document.querySelector('.navbar');
+
+    function highlightActiveLink() {
+        let scrollY = window.pageYOffset;
+
+        sections.forEach(current => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 100; // Offset for the fixed header
+            const sectionId = current.getAttribute('id');
+            const correspondingLink = document.querySelector('.navbar a[href*=' + sectionId + ']');
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                // Add active class to the corresponding link
+                navLinks.forEach(link => link.classList.remove('active'));
+                if(correspondingLink) {
+                    correspondingLink.classList.add('active');
+                }
+            }
+        });
+    }
+
+    window.addEventListener('scroll', highlightActiveLink);
+
+});
+    </script>
 </body>
 </html>
